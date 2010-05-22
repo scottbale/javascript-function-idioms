@@ -1,0 +1,8 @@
+{
+  "name": "JavaScript Functions - Idioms for Encapsulation and Inheritance",
+  "description": "Or - a Thinly Veiled Ripoff of Crockford's JavaScript, The Good Parts",
+  "sections": [
+    {"section":"encapsulation"},
+    {"section":"inheritance"}
+  ]
+}
