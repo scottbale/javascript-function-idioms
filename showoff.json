@@ -1,8 +1,9 @@
 {
   "name": "JavaScript Functions - Idioms for Encapsulation and Inheritance",
-  "description": "Or - a Thinly Veiled Ripoff of Crockford's JavaScript, The Good Parts",
+  "description": "Lambda Lounge June 2010 http://lambdalounge.org/",
   "sections": [
     {"section":"encapsulation"},
-    {"section":"inheritance"}
+    {"section":"inheritance"},
+    {"section":"conclusion"}
   ]
 }

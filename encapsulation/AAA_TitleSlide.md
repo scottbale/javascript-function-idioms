@@ -3,4 +3,6 @@
 
 # JavaScript Functions - Idioms for Encapsulation and Inheritance #
 
-* Or - a Thinly Veiled Ripoff of Crockford's <u>JavaScript: The Good Parts</u> Chapters 5 and 6
+* or
+* A Thinly-Veiled Ripoff of <a href="http://www.crockford.com/">Douglas Crockford's</a> <u>JavaScript: The Good Parts</u> Chapters 4 and 5
+
