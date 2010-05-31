@@ -61,3 +61,26 @@
          + ':' + COINS[name];
     }
 
+!SLIDE execute
+
+# Cleaner Iteration #
+
+	@@@ javaScript
+    var COINS = {
+        NICKEL : 5,
+        DIME : 10,
+        QUARTER : 25,
+        isCoin : function(cents){
+            return [COINS.NICKEL, COINS.DIME,
+             COINS.QUARTER].contains(cents);
+        }
+    };
+    result = '';    
+    for (var name in COINS){
+        if (COINS.hasOwnProperty(name)
+         && typeof COINS[name] !== 'function'){
+            result = result + '|' + name
+             + ':' + COINS[name];
+        }
+    }
+
