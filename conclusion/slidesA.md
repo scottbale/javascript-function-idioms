@@ -1,4 +1,4 @@
-!SLIDE small transition=scrollUp
+!SLIDE small
 
 # Bad JavaScript - Look Familiar?#
 
