@@ -29,9 +29,9 @@
     @@@ javaScript
     var thisDetector = function (){
         if (this === thisDetector){
-            return '\'this\' is me!';
+            result = '\'this\' is me!';
         } else {
-            return '\'this\' is ' + this;
+            result = '\'this\' is ' + this;
         }
     };
 
@@ -43,16 +43,16 @@
     @@@ javaScript
     var thisDetector = function (){
         if (this === thisDetector){
-            return '\'this\' is me!';
+            result = '\'this\' is me!';
         } else {
-            return '\'this\' is ' + this;
+            result = '\'this\' is ' + this;
         }
     };
     var testObject = {
         testMe:thisDetector,
         toString:function(){return "testObject"}
     };
-    result = testObject.testMe();
+    testObject.testMe();
 
 !SLIDE execute
 .notes 'object Window' is the global object in the browser
@@ -62,12 +62,12 @@
     @@@ javaScript
     var thisDetector = function (){
         if (this === thisDetector){
-            return '\'this\' is me!';
+            result = '\'this\' is me!';
         } else {
-            return '\'this\' is ' + this;
+            result = '\'this\' is ' + this;
         }
     };
-    result = thisDetector();
+    thisDetector();
 
 !SLIDE execute
 
@@ -78,16 +78,15 @@
     @@@ javaScript
     var thisDetector = function (){
         if (this === thisDetector){
-            return '\'this\' is me!';
+            result = '\'this\' is me!';
         } else {
-            return '\'this\' is ' + this;
+            result = '\'this\' is ' + this;
         }
     };
     thisDetector.prototype.toString = function(){
         return "newly constructed object";
     };
-
-    result = new thisDetector();
+    new thisDetector();
 
 !SLIDE execute
 .notes there are always two implicit hidden additional parameters in a function invocation: context for 'this, and arguments array
@@ -100,13 +99,13 @@
     @@@ javaScript
     var thisDetector = function (){
         if (this === thisDetector){
-            return '\'this\' is me!';
+            result = '\'this\' is me!';
         } else {
-            return '\'this\' is ' + this;
+            result = '\'this\' is ' + this;
         }
     };
 
-    result = thisDetector.apply(thisDetector, []);
+    thisDetector.apply(thisDetector, []);
 
 !SLIDE execute
 
@@ -115,13 +114,13 @@
     @@@ javaScript
     var thisDetector = function (){
         if (this === thisDetector){
-            return '\'this\' is me!';
+            result = '\'this\' is me!';
         } else {
-            return '\'this\' is ' + this;
+            result = '\'this\' is ' + this;
         }
     };
 
-    result = thisDetector.apply(
+    thisDetector.apply(
       {toString:function(){return 'foo';}}, []);
 
 
