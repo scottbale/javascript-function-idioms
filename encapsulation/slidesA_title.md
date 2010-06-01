@@ -1,4 +1,4 @@
-!SLIDE bullets incremental 
+!SLIDE bullets incremental
 .notes first slide
 
 # JavaScript Functions - Idioms for Encapsulation and Inheritance #

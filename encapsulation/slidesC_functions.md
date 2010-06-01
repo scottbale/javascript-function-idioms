@@ -19,6 +19,8 @@
 !SLIDE execute
 
 # Function Expression #
+.notes function expression can be used anywhere that an expression is expected.
+.notes Note the anonymous function expression parameter to the .each() method
 
 	@@@ javaScript
     var coinReturn = [10, 5, 25];
@@ -35,75 +37,49 @@
     result = isSufficientFunds(75);
 
 
-!SLIDE
+!SLIDE execute transition=scrollUp
+.notes functions are objects, so they can have their own properties (including other functions!)
 
-# Let's make an object #
-
-	@@@ javaScript
-    var COINS = {};
-    COINS.nickel = 5;
-    COINS.dime = 10;
-    COINS.quarter = 25;
-    COINS.isCoin = function(cents){
-        return [COINS.NICKEL, COINS.DIME,
-         COINS.QUARTER].contains(cents);
-    };
-
-!SLIDE
-
-# Let's make an object - JSON #
+# Functions are objects, too #
 
 	@@@ javaScript
-    var COINS = {
-        NICKEL : 5,
-        DIME : 10,
-        QUARTER : 25,
-        isCoin : function(cents){
-            return [COINS.NICKEL, COINS.DIME,
-             COINS.QUARTER].contains(cents);
-        }
-    };
+    var foo = function(){return false;};
+    foo.bar = function(){return true;};
+    foo.baz = 3;
+
+    result = foo();
 
 !SLIDE execute
 
-# Iterating an object's properties #
+# Functions are objects, too #
 
 	@@@ javaScript
-    var COINS = {
-        NICKEL : 5,
-        DIME : 10,
-        QUARTER : 25,
-        isCoin : function(cents){
-            return [COINS.NICKEL, COINS.DIME,
-             COINS.QUARTER].contains(cents);
+    var foo = function(){return false;};
+    foo.bar = function(){return true;};
+    foo.baz = 3;
+
+    result = foo.bar();
+
+!SLIDE transition=scrollUp
+.notes excerpt from my own unit test runner
+.notes example of passing functions as parameters
+
+    @@@ javaScript
+    var runTestsRecursive = function(tests){
+        for (var prop in tests){
+            var aTest = tests[prop];
+            if (typeof aTest === 'function'){
+                attemptTest(aTest);
+            } else if (typeof aTest === 'object'){
+                runTestsRecursive(aTest);
+            }
         }
     };
-    result = '';
-    for (var name in COINS){
-        result = result + '|' + name
-         + ':' + COINS[name];
-    }
-
-!SLIDE execute
-
-# Cleaner Iteration #
-
-	@@@ javaScript
-    var COINS = {
-        NICKEL : 5,
-        DIME : 10,
-        QUARTER : 25,
-        isCoin : function(cents){
-            return [COINS.NICKEL, COINS.DIME,
-             COINS.QUARTER].contains(cents);
+    var attemptTest = function(testFunction){
+        try {
+            testFunction();
+        } catch (e) {
+            //...some stuff
         }
     };
-    result = '';    
-    for (var name in COINS){
-        if (COINS.hasOwnProperty(name)
-         && typeof COINS[name] !== 'function'){
-            result = result + '|' + name
-             + ':' + COINS[name];
-        }
-    }
 
