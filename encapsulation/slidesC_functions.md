@@ -41,7 +41,7 @@
     result = isSufficientFunds(75);
 
 
-!SLIDE execute transition=scrollUp
+!SLIDE execute
 .notes functions are objects, so they can have their own properties (including other functions!)
 
 # Functions are objects, too #

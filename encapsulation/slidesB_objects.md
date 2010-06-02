@@ -97,10 +97,8 @@
              this.QUARTER].contains(cents);
         }
     };
-    result = '';
     for (var name in COINS){
-        result = result + '|' + name
-         + ':' + COINS[name];
+        CORE.out(name + ':' + COINS[name]);
     }
 
 !SLIDE execute
@@ -118,12 +116,10 @@
              this.QUARTER].contains(cents);
         }
     };
-    result = '';    
     for (var name in COINS){
         if (COINS.hasOwnProperty(name)
          && typeof COINS[name] !== 'function'){
-            result = result + '|' + name
-             + ':' + COINS[name];
+            CORE.out(name + ':' + COINS[name]);
         }
     }
 
