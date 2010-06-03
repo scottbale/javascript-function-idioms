@@ -127,7 +127,7 @@
 !SLIDE execute
 .notes example of specifying arguments - note there are no args in signature, but function sees three args anyway!
 
-# 'apply()' invocation pattern #
+# 'apply()' with arguments #
 
     @@@ javaScript
     var thisDetector = function (){

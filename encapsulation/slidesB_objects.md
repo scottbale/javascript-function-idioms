@@ -19,20 +19,6 @@
 
 !SLIDE
 
-# Let's make an object #
-
-	@@@ javaScript
-    var COINS = {};
-    COINS.nickel = 5;
-    COINS.dime = 10;
-    COINS.quarter = 25;
-    COINS.isCoin = function(cents){
-        return [this.NICKEL, this.DIME,
-         this.QUARTER].contains(cents);
-    };
-
-!SLIDE
-
 # Let's make an object - JSON #
 
 	@@@ javaScript

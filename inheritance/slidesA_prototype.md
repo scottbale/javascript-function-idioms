@@ -40,6 +40,12 @@ created by calling that function as a constructor
     };
     CORE.out(obj.foo());
 
+!SLIDE bullets incremental
+
+# Key Point #
+
+* An object's hidden prototype link can *only* be set by the new operator
+
 !SLIDE
 
 # Pseudoclassical Inheritance #
@@ -59,71 +65,80 @@ created by calling that function as a constructor
     core.out("foo");
     core.require("jQuery.core.js");
 
-!SLIDE smaller transition=scrollUp
+!SLIDE transition=scrollUp
 
     @@@ javaScript
-    var Core = function(){
-        this.name = "abstract core";
-    };
-    Core.prototype.out = function(output){
-        alert(this.name + ": " + output);
-    };
-    Core.prototype.require = function(import){
-        this.out("require: " + import);
-    };
+    var Core = function(){this.name = "abstract core";};Core.prototype.out = function(output){alert(this.name + ": " + output);};Core.prototype.require = function(import){this.out("require: " + import);};
     var ShowoffCore = function(){
         this.name = "Showoff";
     };
     ShowoffCore.prototype = new Core();
-    ShowoffCore.prototype.out = function(output){
+    ShowoffCore.prototype.out=function(output){
         result = result || '';
-        result = result + '<p>' + output + '</p>';
+        result = result+'<p>'+output+'</p>';
     };
 
     var core = new ShowoffCore();
     core.out("foo");
     core.require("jQuery.core.js");
 
-!SLIDE bullets incremental
+!SLIDE
 
-# Key Point #
+# Prototypal Inheritance #
 
-* An object's hidden prototype link can *only* be set by the new operator
+    @@@ javaScript
+    var factory = function(o){
+        var F = function(){};
+        F.prototype = o;
+        return new F();
+    };
 
 !SLIDE
 
-# Functional Inheritance #
+# Prototypal Inheritance #
 
     @@@ javaScript
-    var factory = function(o){
+    Object.create = function(o){
         var F = function(){};
         F.prototype = o;
         return new F();
     };
 
-!SLIDE smaller transition=scrollUp
+!SLIDE transition=scrollUp
 
     @@@ javaScript
-    var factory = function(o){
-        var F = function(){};
-        F.prototype = o;
-        return new F();
-    };
-    var core = factory({
+    var coreProto = {
         out : function(output){
             alert(this.name + ": " + output);
         },
         require : function(import){
             this.out("require: " + import);
         }
-    });
-    var showoffCore = factory({
-        out: function(output){
-            result = result || '';
-            result = result + '<p>' + output + '</p>';
+    }
+    var showoffProto = Object.create(coreProto);
+    showoffProto.out = function(output){
+        result = result || '';
+        result = result + '<p>'+output+'</p>';
+    }
+
+    var showoff1 = Object.create(showoffProto);
+    showoff1.out("foo");
+
+!SLIDE
+
+# Extending the language #
+
+    @@@ javaScript
+    Function.prototype.method
+                   = function (name, func) {
+        if (!this.prototype[name]){
+            this.prototype[name] = func;
+            return this;
+        }
+    };
+    Array.method('each', function(f, index){
+        for (var i=0; i<this.length; i++){
+            f(this[i], i);
         }
     });
-    core.out("foo");
-    showoffCore.out("foo");
-
 
