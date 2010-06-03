@@ -1,57 +1,17 @@
 !SLIDE subsection
 
-# Conclusion #
+# The Wrap-Up #
 
-!SLIDE small
+!SLIDE
 
-# Look Familiar?#
+# jQuery #
 
-	@@@ html
-    <html><head><LINK REL=stylesheet HREF="/irj/portalapps/com.sap.portal.design.portaldesigndata/themes/portal/mon_sap_ebp_theme/prtl_std/prtl_std_nn7.css?7.1.5.0.1">
+    @@@ javaScript
+    $('div.clickable').click(function(){
+        $(this).attr('class', 'clicked');
+    });
 
-    <script language="JavaScript">
-    function clearEntries() {
-        document.logonForm.longUid.value="";
-        document.logonForm.password.value="";
-    }
-
-    function setFocusToFirstField() {
-            myform = document.logonForm;
-            for(i=0; i<myform.length; i++) {
-                    elem = myform.elements[i];
-                    if(elem.readOnly==false && elem.type=="text") {
-                            elem.focus();
-                            break;
-                    }
-            }
-    }
-
-
-!SLIDE small transition=scrollUp
-
-	@@@ HTML
-    function addTenantPrefix()
-    {
-
-    return true;
-    }
-
-    </script>
-    <body>
-    <table valign="middle" align="center" border="0" cellspacing="0" style="margin-top:10">
-    <tr>
-     <td colspan="2" valign="Top" height="24" class="welcome">
-       <!-- Welcome<br> -->
-
-       <!-- Yasaswy Bhupalam EBPP Canada French Changes. Commenting the below hard coded Text. Mar-01-2009 -->
-      <!--Welcome -->
-            Welcome<br>
-      <!-- End changes-->
-
-     </td>
-    </tr> </table> </body></html
-
-!SLIDE transition=fade
+!SLIDE transition=scrollUp
 
 # jQuery core.js module #
 
@@ -74,7 +34,7 @@
 
 !SLIDE bullets
 
-# Credits/Links #
+# Links #
 
 * [Douglas Crockford](http://www.crockford.com/)
 * [JavaScript: The Good Parts](http://www.amazon.com/exec/obidos/ASIN/0596517742)
