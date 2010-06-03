@@ -185,6 +185,62 @@
         };
     }(ANOTHER_MODULE));
 
+!SLIDE
+
+# My Core Module #
+
+    @@@ javaScript
+    var CORE = function(){
+        // stuff omitted...
+        return {
+            out : function(output){
+                //implemented by env
+            },
+            require : function(toImport){
+                this.out(
+                 "'require' not implemented!");
+            }
+        };
+    }();
+
+!SLIDE
+
+# Core module #
+## modified for Showoff ##
+
+    @@@ javaScript
+    (function(CORE){
+
+        CORE.require = function(toImport){
+            //nothing to do
+        };
+        CORE.out = function(output){
+            result = result || '';
+            result = result + '<p>' + output + '</p>';
+        };
+
+        return CORE;
+    }(CORE));
+
+!SLIDE
+
+# Core module #
+## modified for Mozilla Rhino ##
+
+    @@@ javaScript
+    (function(CORE){
+        // ...
+        CORE.require = function(toImport){
+            // load from src or testsrc
+        };
+        CORE.out = function(output){
+            // Rhino-specific!
+            print('\n'+output);
+        };
+
+        return CORE;
+    }(CORE));
+
 !SLIDE bullets incremental
 .notes unlike other languages, there is no nesting of scope in blocks, only in function bodies
 

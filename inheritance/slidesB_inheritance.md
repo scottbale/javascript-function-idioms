@@ -132,6 +132,24 @@
     var showoff1 = Object.create(showoffProto);
     showoff1.require("jQuery.js");
 
+!SLIDE
+
+# Functional Inheritance #
+## Combine prototypal inheritance with encapsulation ##
+
+    @@@ javaScript
+    var constructor = function(prototype){
+        var a, b; // secret stuff
+
+        var publicMethod = function(){
+            // accesses secret stuff
+        };
+
+        return Object.mixin(
+          Object.create(prototype),
+          {'publicMethod':publicMethod}
+          );
+    };
 
 
 
