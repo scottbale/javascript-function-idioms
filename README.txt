@@ -1,5 +1,6 @@
 Presentation for June 2010 Lambda Lounge http://lambdalounge.org/ "JavaScript Functions : The Good Parts - Idioms for Encapsulation and Inheritance"
 
+
 Implemented using Showoff http://github.com/schacon/showoff
 
 Instructions
@@ -10,3 +11,5 @@ Instructions
 
 Then you should be able to go to http://localhost:9090 to view the
 presentation.
+
+Slides can be viewed as static HTML at http://github.com/scottbale/JavaScript-Function-Idioms/slidesStaticHtml/index.html
