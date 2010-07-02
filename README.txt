@@ -12,4 +12,4 @@ Instructions
 Then you should be able to go to http://localhost:9090 to view the
 presentation.
 
-Slides can be viewed as static HTML at http://github.com/scottbale/JavaScript-Function-Idioms/slidesStaticHtml/index.html
+Slides can be retrieved as static HTML slidesStaticHtml/ subfolder
