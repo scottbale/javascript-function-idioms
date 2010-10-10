@@ -36,6 +36,39 @@
     };
 
 !SLIDE execute
+.notes 'object Window' is the global object in the browser
+
+# Function invocation pattern #
+
+    @@@ javaScript
+    var thisDetector = function (){
+        if (this === thisDetector){
+            result = '\'this\' is me!';
+        } else {
+            result = '\'this\' is ' + this;
+        }
+    };
+    thisDetector();
+
+!SLIDE execute
+.notes 'object Window' is the global object in the browser
+
+# Function invocation pattern #
+
+    @@@ javaScript
+    var containingFunction = function(){
+
+        var thisDetector = function (){
+            if (this === thisDetector){
+                result = '\'this\' is me!';
+            } else {
+                result = '\'this\' is ' + this;
+            }
+        };
+        thisDetector();
+    }();
+
+!SLIDE execute
 .notes what do you think will be outputted?
 
 # Method invocation pattern #
@@ -53,21 +86,6 @@
         toString:function(){return "testObject"}
     };
     testObject.testMe();
-
-!SLIDE execute
-.notes 'object Window' is the global object in the browser
-
-# Function invocation pattern #
-
-    @@@ javaScript
-    var thisDetector = function (){
-        if (this === thisDetector){
-            result = '\'this\' is me!';
-        } else {
-            result = '\'this\' is ' + this;
-        }
-    };
-    thisDetector();
 
 !SLIDE execute
 
