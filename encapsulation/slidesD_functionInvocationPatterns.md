@@ -148,11 +148,11 @@
 # 'apply()' with arguments #
 
     @@@ javaScript
-    var thisDetector = function (){
+    var argCounter = function (){
         result = arguments.length;
     };
 
-    thisDetector.apply({}, [false, 3, {}]);
+    argCounter.apply({}, [false, 3, {}]);
 
 
 

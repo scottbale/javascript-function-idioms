@@ -2,7 +2,7 @@
 
 # Prototype #
 
-!SLIDE bullets incremental transition=fade
+!SLIDE bullets transition=fade
 .notes blah
 
 # JavaScript Prototypes #

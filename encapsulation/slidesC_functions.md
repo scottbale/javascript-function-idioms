@@ -40,6 +40,22 @@
 
     result = isSufficientFunds(75);
 
+!SLIDE transition=scrollUp
+.notes example of passing functions as parameters
+
+# Functions as parameters
+
+    @@@ javaScript
+    var coins = [];
+
+    var makeChange = function(changeDue){
+        coins.sort(function(a,b){
+            return b-a;
+        });
+
+        // some other stuff...
+    };
+
 
 !SLIDE execute
 .notes functions are objects, so they can have their own properties (including other functions!)
@@ -64,26 +80,15 @@
 
     result = foo.bar();
 
-!SLIDE transition=scrollUp
-.notes excerpt from my own unit test runner
-.notes example of passing functions as parameters
 
-    @@@ javaScript
-    var runTestsRecursive = function(tests){
-        for (var prop in tests){
-            var aTest = tests[prop];
-            if (typeof aTest === 'function'){
-                attemptTest(aTest);
-            } else if (typeof aTest === 'object'){
-                runTestsRecursive(aTest);
-            }
-        }
-    };
-    var attemptTest = function(testFunction){
-        try {
-            testFunction();
-        } catch (e) {
-            //...some stuff
-        }
-    };
+!SLIDE
 
+# Function body = nested scope
+
+	@@@ javaScript
+    function isSufficientFunds(purchasePrice){
+        var funds = 0;
+        // ...
+    }
+
+    result = funds;

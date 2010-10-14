@@ -2,7 +2,7 @@
 
 # Encapsulation Idioms #
 
-!SLIDE bullets incremental transition=fade
+!SLIDE bullets transition=fade
 .notes blah
 
 # Why Encapsulation? #
@@ -34,7 +34,7 @@
     <script type="text/javascript" src="/js/showoffcore.js"></script>
     ...
 
-!SLIDE bullets left incremental transition=scrollUp
+!SLIDE bullets left transition=scrollUp
 .notes blah
 
 # Encapsulation Techniques #
@@ -98,19 +98,24 @@
     CORE.out(func(20));
     CORE.out(func.coinReturn);
 
-!SLIDE smaller transition=scrollUp
+!SLIDE transition=scrollUp
 .notes accomplishes both: namespacing, private state
 .notes doesn't completely prevent tampering, but can preserve invariants
 
-# A Module #
+# A Module... #
+
+!SLIDE transition=scrollUp
+.notes accomplishes both: namespacing, private state
+.notes doesn't completely prevent tampering, but can preserve invariants
+
 
     @@@ javaScript
     var ACM = function(){
         var coinReturn = [];
         var coins = [];
 
-        var doPurchase = function(purchasePrice){
-            if (ifSufficientFunds(purchasePrice)){
+        var doPurchase = function(price){
+            if (ifSufficientFunds(price)){
                 // ...
             }
         };
@@ -119,14 +124,14 @@
             deposit : function(coin){
                 coinReturn.push(coin);
             },
-            purchase : function(purchasePriceInCents){
-                return doPurchase(purchasePriceInCents);
+            purchase : function(price){
+                return doPurchase(price);
             }
             //...
         };
     }();
 
-!SLIDE
+!SLIDE transition=scrollUp
 .notes canonical example of module
 
 # The Module Pattern #
@@ -185,7 +190,7 @@
         };
     }(ANOTHER_MODULE));
 
-!SLIDE
+!SLIDE transition=fade
 
 # My Core Module #
 
@@ -206,25 +211,6 @@
 !SLIDE
 
 # Core module #
-## modified for Showoff ##
-
-    @@@ javaScript
-    (function(CORE){
-
-        CORE.require = function(toImport){
-            //nothing to do
-        };
-        CORE.out = function(output){
-            result = result || '';
-            result = result + '<p>' + output + '</p>';
-        };
-
-        return CORE;
-    }(CORE));
-
-!SLIDE
-
-# Core module #
 ## modified for Mozilla Rhino ##
 
     @@@ javaScript
@@ -241,7 +227,28 @@
         return CORE;
     }(CORE));
 
-!SLIDE bullets incremental
+!SLIDE
+
+# Core module #
+## modified for browser ##
+
+    @@@ javaScript
+    (function(CORE){
+
+        CORE.require = function(toImport){
+            //nothing to do
+        };
+        CORE.out = function(output){
+            document.write('<br>'+output+'</br>');
+        };
+
+        return CORE;
+    }(CORE));
+
+    CORE.out('some sort of browser');
+
+
+!SLIDE bullets
 .notes unlike other languages, there is no nesting of scope in blocks, only in function bodies
 
 # Key Point #

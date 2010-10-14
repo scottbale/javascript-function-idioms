@@ -1,6 +1,6 @@
 !SLIDE subsection
 
-# Whirlwind Overview - Objects #
+# Whirlwind Review - Objects #
                      
 !SLIDE
 .notes When a function is a property of an object it is called a 'method'
