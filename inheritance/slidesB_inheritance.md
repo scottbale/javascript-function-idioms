@@ -111,17 +111,44 @@
 ## Combine prototypal inheritance with encapsulation ##
 
     @@@ javaScript
-    var constructor = function(prototype){
-        var a, b; // secret stuff
+    var constructor = function(spec,
+                               secretStuff){
+        secretStuff = secretStuff || {};
+        var a, b; // more secret stuff
 
         var publicMethod = function(){
             // accesses secret stuff
         };
 
-        var obj = Object.create(prototype);
+        var obj = Object.create(spec);
         obj.publicMethod = publicMethod;
         return obj;
     };
+
+!SLIDE execute
+
+    @@@ javaScript
+    var freeACM = function(coinReturn){
+        doPurchase = function(price) {
+            return true;
+        }
+        return {
+            coinReturn : coinReturn,
+            purchase : doPurchase
+        }
+    };
+    var payACM = function(coinReturn){
+        var doPurchase = function(price) {
+            return this.coinReturn.length != 0;
+        };
+        var obj = Object.create(freeACM(coinReturn));
+        obj.purchase = doPurchase;
+        obj.coinReturn = coinReturn;
+        return obj;
+    };
+    CORE.out(freeACM([]).purchase(85));
+    CORE.out(payACM([]).purchase(85));
+
 
 
 
