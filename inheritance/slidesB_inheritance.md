@@ -2,7 +2,7 @@
 
 # Inheritance Idioms #
 
-!SLIDE
+!SLIDE execute
 
 # Pseudoclassical Inheritance #
 
@@ -18,7 +18,7 @@
     var acm = new FreeACM();
     CORE.out(acm.purchase(85));
 
-!SLIDE transition=scrollUp
+!SLIDE execute transition=scrollUp
 
 # "Subclass" #
 
@@ -88,7 +88,7 @@
         return new F();
     };
 
-!SLIDE transition=scrollUp
+!SLIDE execute transition=scrollUp
 
     @@@ javaScript
     var freeACM = {

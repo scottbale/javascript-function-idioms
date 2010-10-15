@@ -1,4 +1,13 @@
-!SLIDE bullets incremental
+!SLIDE bullets
+.notes first slide
+
+# JavaScript Functions : The Good Parts - Idioms for Encapsulation and Inheritance #
+## Scott Bale, BJC HealthCare ##
+## [@scottbale](http://twitter.com/scottbale) ##
+## scott@balehaus.org ##
+
+
+!SLIDE bullets  transition=scrollUp
 .notes first slide
 
 # JavaScript Functions : The Good Parts - Idioms for Encapsulation and Inheritance #

@@ -41,6 +41,5 @@
 * [The Module Pattern](http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth)
 * slides by [showoff](http://github.com/schacon/showoff)
 * [http://github.com/scottbale](http://github.com/scottbale)
-* scott@balehaus.org
 
 

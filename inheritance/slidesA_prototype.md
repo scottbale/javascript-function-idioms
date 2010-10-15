@@ -44,8 +44,7 @@ created by calling that function as a constructor
     };
     CORE.out(obj.foo());
 
-!SLIDE execute
-.notes adding to obj does not affect obj's prototype
+!SLIDE
 
 # prototype #
 ## modifying 'obj' does not affect prototype ##
@@ -63,7 +62,7 @@ created by calling that function as a constructor
     delete obj.foo;
     CORE.out(obj.foo);
 
-!SLIDE
+!SLIDE execute
 
 # Extending the Language #
 
