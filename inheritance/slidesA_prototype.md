@@ -60,7 +60,7 @@ created by calling that function as a constructor
     CORE.out(obj.foo);
     CORE.out(Object.prototype.foo);
 
-    delete Object.prototype.foo;
+    delete obj.foo;
     CORE.out(obj.foo);
 
 !SLIDE

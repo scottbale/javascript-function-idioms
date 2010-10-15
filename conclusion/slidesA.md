@@ -39,8 +39,8 @@
 * [Douglas Crockford](http://www.crockford.com/)
 * [JavaScript: The Good Parts](http://www.amazon.com/exec/obidos/ASIN/0596517742)
 * [The Module Pattern](http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth)
-* [jQuery](http://github.com/jquery)
 * slides by [showoff](http://github.com/schacon/showoff)
 * [http://github.com/scottbale](http://github.com/scottbale)
+* scott@balehaus.org
 
 
