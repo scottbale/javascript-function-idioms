@@ -8,36 +8,57 @@
 
     @@@ javaScript
     // a constructor aka pseudo-class
-    var Core = function(){
-        this.name = "abstract core";
+    var FreeACM = function() {
+        this.coinReturn = [];
     };
-    Core.prototype.out = function(output){
-        alert(this.name + ": " + output);
-    };
-    Core.prototype.require = function(import){
-        this.out("require: " + import);
+    FreeACM.prototype.purchase = function(price) {
+        return true;
     };
 
-    var core = new Core();
-    core.out("foo");
-    core.require("jQuery.core.js");
+    var acm = new FreeACM();
+    CORE.out(acm.purchase(85));
 
 !SLIDE transition=scrollUp
 
+# "Subclass" #
+
     @@@ javaScript
-    var Core = function(){this.name = "abstract core";};Core.prototype.out = function(output){alert(this.name + ": " + output);};Core.prototype.require = function(import){this.out("require: " + import);};
-    var ShowoffCore = function(){
-        this.name = "Showoff";
+    var FreeACM = function() {
+        this.coinReturn = [];
     };
-    ShowoffCore.prototype = new Core();
-    ShowoffCore.prototype.out=function(output){
-        result = result || '';
-        result = result+'<p>'+output+'</p>';
+    FreeACM.prototype.purchase = function(price) {
+        return true;
     };
 
-    var core = new ShowoffCore();
-    core.out("foo");
-    core.require("jQuery.core.js");
+    var PayACM = function() {};
+    PayACM.prototype = new FreeACM();
+    PayACM.prototype.purchase = function(price) {
+        return this.coinReturn.length != 0;
+    }
+
+    var acm = new PayACM();
+    CORE.out(acm.purchase(85));
+
+!SLIDE transition=scrollUp
+
+# Prototype.js #
+
+    @@@ javaScript
+    var FreeACM = Class.create({
+      initialize: function() {
+        this.coinReturn = [];
+      },
+      purchase: function(price) {
+        return true;
+      }
+    });
+
+    var PayACM = Class.create(FreeACM, {
+      purchase: function(price) {
+        return this.coinReturn.length != 0;
+      }
+    });
+
 
 !SLIDE bullets
 
@@ -50,7 +71,7 @@
 # Prototypal Inheritance #
 
     @@@ javaScript
-    var factory = function(o){
+    function(o){
         var F = function(){};
         F.prototype = o;
         return new F();
@@ -66,71 +87,23 @@
         F.prototype = o;
         return new F();
     };
-!SLIDE
-
-# Prototypal Inheritance #
-
-    @@@ javaScript
-    Object.create = function(o){
-        var F = function(){};
-        F.prototype = o;
-        return new F();
-    };
-    Object.mixin = function(obj,mixin){
-        for (name in mixin){
-            if (mixin.hasOwnProperty(name)){
-                obj[name] = mixin[name];
-            }
-        }
-        return obj;
-    };
 
 !SLIDE transition=scrollUp
 
     @@@ javaScript
-    var coreProto = {
-        name : 'core',
-        out : function(output){
-            alert(this.name + ": " + output);
-        },
-        require : function(import){
-            this.out("require: " + import);
+    var freeACM = {
+        coinReturn : [],
+        purchase : function(price) {
+            return true;
         }
     }
-    var showoffProto = Object.create(coreProto);
-    showoffProto.name = 'showoff';
-    showoffProto.out = function(output){
-        result = result || '';
-        result = result + '<p>' + this.name;
-        result = result + ":" + output+'</p>';
+    var payACM = Object.create(freeACM);
+    payACM.purchase = function(price) {
+        return this.coinReturn.length != 0;
     }
 
-    var showoff1 = Object.create(showoffProto);
-    showoff1.require("jQuery.js");
-
-!SLIDE transition=scrollUp
-
-    @@@ javaScript
-    var coreProto = {
-        name : 'core',
-        out : function(output){
-            alert(this.name + ": " + output);
-        },
-        require : function(import){
-            this.out("require: " + import);
-        }
-    }
-    var showoffProto =
-    Object.mixin(Object.create(coreProto), {
-        name : 'showoff',
-        out : function(output){
-            result=result || '';
-            result=result+'<p>'+this.name;
-            result=result+":"+output+'</p>';
-        }
-    });
-    var showoff1 = Object.create(showoffProto);
-    showoff1.require("jQuery.js");
+    CORE.out(freeACM.purchase(85));
+    CORE.out(payACM.purchase(85));
 
 !SLIDE
 
@@ -145,10 +118,9 @@
             // accesses secret stuff
         };
 
-        return Object.mixin(
-          Object.create(prototype),
-          {'publicMethod':publicMethod}
-          );
+        var obj = Object.create(prototype);
+        obj.publicMethod = publicMethod;
+        return obj;
     };
 
 

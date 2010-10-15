@@ -80,15 +80,3 @@
 
     result = foo.bar();
 
-
-!SLIDE
-
-# Function body = nested scope
-
-	@@@ javaScript
-    function isSufficientFunds(purchasePrice){
-        var funds = 0;
-        // ...
-    }
-
-    result = funds;
